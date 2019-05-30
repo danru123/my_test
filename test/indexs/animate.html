@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>css3 翻转效果</title>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="apple-mobile-web-app-capable" content="no"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+        }
+
+        .container{-webkit-perspective:1000;transform-style:preserve-3d;}
+        .container,.front,.back{width:270px;height:360px;}
+        .flip{position:relative;transition:0.6s;transform-style:preserve-3d;}
+        .front,.back{position:absolute;top: 0px;left: 0px;backface-visibility:hidden;}
+        .front{ background-color: rgb(255,192,203);z-index:2;}
+        .back{ background-color: yellow;transform:rotateY(-180deg);}
+        .container:hover .flip{transform:rotateY(180deg);}
+
+
+        .box{
+            width: 500px;
+            height: 375px;
+            padding: 50px;
+            /* box-sizing: border-box; */
+            background: url('https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2153937626,1074119156&fm=27&gp=0.jpg') no-repeat;
+            background-size: cover;
+            background-origin: content-box;
+            border: 3px solid lightgoldenrodyellow;
+        }
+        </style>
+        
+</head>
+<body>
+<div class="container">
+    <div class="flip">
+        <div class="front">front</div>
+        <div class="back">end</div>
+    </div>
+</div>
+    <div class="box">
+
+    </div>
+    <script src="lib/jquery-1.12.3.min.js"></script>
+    <script>
+        $('.front').click(function(){
+            $('.flip').css({
+                'transform':'rotateY(180deg)'
+            })
+        })
+        $('.back').click(function(){
+            $('.flip').css({
+                'transform':'rotateY(360deg)'
+            })
+        })
+
+
+       // alert(num)
+       var num = 1;
+       // 定义 和 调用 函数名(参数)
+       // 定义：function 函数名(参数){代码}
+    //    console.log(fnAlert());  // js函数预解析功能
+       // 需求：自定义一个函数完成弹窗功能
+       function fnAlert() {
+           console.log('自定义函数的弹窗')
+           return 1
+           console.log('ok') //（此处代码不执行）
+       }
+       console.log(fnAlert());  // js函数预解析功能
+    //    fnAlert();
+
+
+
+//     var str1 = '1.9'
+//   // alert(typeof(parseInt(str1)))
+//   // alert( parseInt(str1) ) //去掉小数转换number
+//   // alert(parseFloat(str1))  // 保留小数
+//   var str2 = 'abcdedg'
+//    //  
+//   // substring(开始下标,结束下标) ：取子字符串 ，不包含结束位
+//   // alert(str2.substring(1, 4)) // bcd
+//   // alert(str2.substring(2))
+//   // split('分隔符')
+//   var str3 = '2019-4-17'
+//   // alert(str3.split('-'))
+//   //反转字符串
+//   alert(str2.split('').reverse().join(''))
+
+
+
+
+//         var a=1;
+//         alert(a);
+//        ;(function(){
+//            var a=2
+//            alert(a);
+//        })()
+    </script>
+
+</body>
+</html>

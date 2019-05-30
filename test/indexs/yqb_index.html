@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html,body{
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+        }
+        .fenx{
+            position: relative;
+            box-sizing: border-box;
+            padding-bottom: 0.5rem;
+        }
+        .nav{
+            height: 1rem;
+            box-sizing: border-box;
+            font-size: 0.3rem;
+            font-weight:400;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .nav img{
+            vertical-align: middle;
+            width: 0.12rem;
+            height: 0.6rem;
+            overflow: hidden;
+        }
+        .nav img:nth-child(1){
+            width: 100%;
+            height: 2rem;
+        }
+        .nav_lo{
+            background: #ffffff;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .nav_lo .nav_left{
+            width: 0.6rem;
+            height: 0.6rem;
+        }
+        .nav_left img{
+            width:100%;
+            height: 100%;
+            margin-top: -0.23rem;
+            border: 1px solid #cccccc;
+            margin-left: -0.2rem;
+        }
+        .nav_right{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .xingx{
+            width: 0.8rem;;
+            height:0.25rem;
+            background:rgba(255,230,176,1);
+            border-radius: 0.28rem;
+            margin: 0.1rem 0px 0 0rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            overflow: hidden;
+        }
+        .xingx  img{
+            width: 0.2rem;
+            height: 0.2rem;
+            margin: 0px 0 0.28rem 0.1rem;
+        }
+        .xingx p{
+            color: #9D6720;
+            font-size: 16px;
+            margin: 0.02rem 0.1rem 0rem -0.2rem;
+        }
+        .xin{
+            width: 0.25rem;
+            height: 0.2rem;
+            margin-left: 0.2rem;
+            margin-top: 0.13rem;
+        }
+        .xin img{
+            height: 100%;
+        }
+        .details{
+            background: #ffffff;
+            box-sizing: border-box;
+            padding:0 0.2rem 0.2rem 0.2rem;
+            line-height: 0.23rem;
+            padding-bottom: 0.15rem;
+        }
+        .details h4{
+            font-size: 16px;
+            color: #333333;
+            letter-spacing: 1px;
+        }
+        .details b{
+            background:rgba(255,153,74,1);
+            border-radius:0.9rem;
+            font-size: 14px;
+            color: #ffffff;
+            padding: 0 0.2rem;
+            font-weight: normal;
+        }
+        .details p{
+            width: 100%;
+            font-size:12px;
+            font-weight:400;
+            color:rgba(119,119,119,1);
+        }
+        .details span:nth-child(2){
+            margin-left: 0.25rem;
+        }
+        .footer{
+            width: 100%;
+            height: 0.5rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            overflow: hidden;
+        }
+        .footer span{
+            font-size: 14px;
+            line-height: 0.5rem;
+            display: inline-block;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .footer .footer_left{
+            width: 50%;
+            height:0.5rem;
+            background: #FFDD93;
+        }
+        .footer .footer_left span{
+            color: #9D6720;
+        }
+        .footer_right{
+            width: 50%;
+            height: 0.5rem;
+            background:#FF723C;
+        }
+        .footer_right span{
+            color: #ffffff;
+        }
+    </style>
+</head>
+
+<body>
+<div class="fenx">
+    <div class="box">
+        <div class="nav">
+            <img src="https://static.bankft.com/images/seller/logo/20190412/5cb020873cf8b523.jpg" alt="">
+            <img src="https://static.bankft.com/static/img/seller/goback%402x.png" alt="">
+        </div>
+        <div class="nav_lo">
+            <div class="nav_left">
+                <img src="https://static.bankft.com/images/seller/logo/20190412/5cb020873cf8b523.jpg" alt="">
+                <!--
+                <img src="https://static.bankft.com/static/img/seller/no_jy%402x.png" alt="">
+                -->
+            </div>
+            <div class="nav_right">
+                <div class="xingx">
+                    <img src="https://static.bankft.com/static/img/seller/xy_deng%402x.png" alt="">
+                    <p>1232</p>
+                </div>
+                <div class="xin">
+                    <img src="https://static.bankft.com/static/img/seller/sc_icon%402x.png" alt="" id="collect">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="details">
+        <h4>中瑞丸达机电科技（北京）有限公司</h4>
+
+                    <b>中瑞丸达</b>                <p>已成单 <span>0</span><span>营业时间 </span></p>
+        <p></p>
+        <p>简介：中瑞丸达机电科技（北京）有限公司是国内专业的停车设备电控成套方案服务商之一，致力于成为国际知名的自动控制技术研发型完整装备和成套系统提供商！业务涵盖立体停车设备与工程、工业自动化整体电控方案及工程、以及自动化控制产品的研发、销售及售后服务。
+    河北中瑞丸达智能科技有限公司 座落于环境优美的香河机器人小镇机器人产业园内C8栋3层。工厂以国际化的6S品控要求来构建基于细节的产品服务。
+
+    公司运作团队自1999年起涉足立体停车设备行业，公司自2006年成立以来稳定发展；历经10余年,中瑞丸达现已成长为停车设备业内更专业、行业工作经验更长、更具专业优势（专攻停车设备电控系统设计、研发、应用）的品牌，已成长为立体停车行业中更专业的车库电气成套装备供应商之一；与国际知名品牌Siemens、Schneider、SICK、Mitsubishi、OMRON、panasonic等长期保持战略合作伙伴关系。中瑞丸达自有非标立体车库研发部门和标准化电装工厂，致力于持续不断的为业界提供可持续的创新智造服务。
+    公司自主品牌—“ZRWD”和“中瑞丸达”立体停车设备专用系列产品，定位于中高端市场，致力于以有竞争力的价格，快速的服务响应能力，向市场提供各类车库专用限位（行程）开关、车库专用光电开关、车库专用人机界面（操作器）、PE-SMART CAN总线 标准化动力单元直驱系统、车库专用PLC控制器、立体车库专用单片机式上位控制电脑板、刷卡遥控一体式触摸屏等高品质产品、立体车库充电桩技术应用与配套、汽车搬运机器人技术应用与配套、专业平面移动类大型全自动立体停车场成套技术应用与配套、专业各类智能类立体车库成套技术应用与配套,2010年即研发出“互联网+”云遥监管理平台之“立体车库全球远程维护诊断监控管理”控制系统--ZRWD-Parking gprs mms并且已成功批量投放市场；2016年研发出智能停车场之汽车轮廓3D扫描+精准过程引导系统，并正式在三亚解放路智能停车场投入使用。
+    中瑞丸达凭借雄厚的技术研发能力和精干高效的专业化团队以及先进完善的检测设备设施，将不断为顾客提供完善的智慧的前沿的立体车库自动化系统解决方案、优质的产品和贴心细致的服务。</p>
+        <p>北京市顺义区航城广场G座</p>
+    </div>
+    <div class="kong"></div>
+    <div class="footer">
+        <div class="footer_left">
+            <span>点亮信用灯</span>
+        </div>
+        <div class="footer_right">
+            <span>AIC支付</span>
+        </div>
+    </div>
+
+</div>
+
+<script src="./lib/remLu.js"></script>
+<script src="./lib/jquery-1.12.3.min.js"></script>
+<script type="text/javascript">    $(".footer").click(function(){
+        var id =  4023;
+        window.location.href = "/agreement/mount.html?id="+id+"&type=6";
+    });
+    $("#collect").click(function(){
+        var id =  4023;
+        window.location.href = "/agreement/mount.html?id="+id+"&type=6";
+    });
+    </script>
+
+
+</body>
+</html>

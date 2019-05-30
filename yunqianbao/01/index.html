@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0,viewport-fit=cover""> -->
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/layui.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        nav,footer{
+            height: 0.5rem;
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 100%;
+            position: fixed;
+            background-color: #fff;
+            padding:0.1rem;
+        }
+        nav span,footer span{
+            font-size: 0.15rem;
+            display: inline-block;
+            margin-top: 0.05rem;
+            margin-left:0.25rem;
+        }
+        nav{
+            top:0;
+            box-shadow:0 0.05rem 0.25rem 0 rgba(192,192,192,0.5);
+        }
+        footer{
+            bottom: 0;
+            -moz-box-shadow:0.05px -0.05rem 0.25rem 0px rgba(192,192,192,0.5);
+            -webkit-box-shadow:0.05px -0.05rem 0.25rem 0px rgba(192,192,192,0.5);;
+            box-shadow:0.05px -0.05rem 0.25rem 0px rgba(192,192,192,0.5);
+            box-sizing: border-box;
+            display: none;
+        }
+        .logo{
+            width: 0.35rem;
+            height: 0.35rem;
+            float: left;
+        }
+        .btn{
+            width: 0.75rem;
+            height: 0.3rem;
+            line-height: 0.3rem;
+            background-color: #0089fc;
+            border-radius: 1rem;
+            float: right;
+            font-size: 0.15rem;
+            color:#fff;
+            border: none;
+            outline: none;
+            /* margin-top: 0.05rem; */
+            vertical-align: middle;
+        }
+        .main{
+            padding:0.6rem 0.1rem 0rem 0.1rem;
+            box-sizing: border-box;
+            margin-bottom:1.5rem;
+        }
+        .main .title{
+            font-size: 0.25rem;
+            color:#333;
+            font-weight: bold;
+        }
+        .main .cnt{
+            color:#333;
+            line-height: 0.3rem;
+            font-size: 0.2rem;
+            margin-top: 0.1rem;
+        }
+        .main .date{
+            color:#ccc;
+            font-size: 0.15rem;
+            margin-top: 0.1rem;
+        }
+
+        .cnt ul{
+            width: 100%;
+            box-sizing: border-box;
+            padding-left: 0.5rem;
+        }
+        .cnt img{
+            width: 100%;
+            display:block;
+            margin:0 auto;
+        }
+        
+
+        .pc{
+            font-size: 32px;
+        }
+        .rem{
+            font-size: 0.32rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img src="img/logo.png" alt="" class="logo">
+        <span>云钱包</span>
+        <button class="btn">打开</button>
+    </nav>
+    <div class="main">
+        <div class="title">
+            金股兑换是否需要阶段性关闭
+        </div>
+        <div class="date">
+            创建于 2018年10月31日
+        </div>
+        <div class="cnt">
+            <p class="pc">正常</p>
+            <p class="rem">正常</p>
+            <p>哈哈哈哈</p>
+            <p>1、是拟签约公信力企业</p>
+           <ul>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+               <li>啦啦啦啦</li>
+           </ul>
+           <img src="./img/logo.png" alt="" id="logo">
+        </div>
+        <p>请输出一个 5 到 10 之间的数字:</p>
+        <input id="demo" type="text">
+        <button type="button" onclick="myFunction()">测试输入</button>
+        <p id="mess"></p>
+        <!-- <div class="pic"></div> -->
+    </div>
+    <footer>
+        <img src="img/logo.png" alt="" class="logo">
+        <span>云钱包</span>
+        <button class="btn">打开</button>
+    </footer>
+    <!-- <script src='lib/rem.js'></script> -->
+    <script src="lib/remLu.js"></script>
+    <script src="lib/jquery-1.12.3.min.js"></script>
+    <!-- <script src="lib/layui.all.js"></script> -->
+    <script>
+    //     layui.use('layer', function(){
+    //      var layer = layui.layer;
+    //       layer.msg('hello');
+    //   });
+    </script>
+    <script>
+        $(window).scroll(function(){
+            if($(window).scrollTop() >= 80){
+                $("nav").fadeOut(500); 
+                $('footer').fadeIn(500);
+            }else{
+                $("nav").stop(true,true).fadeIn(500); 
+                $('footer').stop(true,true).fadeOut(500);
+            }
+        });
+        $('#logo').hover(function(){
+            $('#logo').attr('src','./img/anzuo.png');
+        })
+        // $.ajax({
+        //     type:"GET",
+        //     url:"https://th5.bankft.com/article/affiche.html?id=1", 
+        //     dataType:"json",  
+        //     success:function(data){  
+        //         console.log(data);
+        //     },
+        //     error: function (e) {
+        //         console.log(e);
+        //     }
+        // });
+    
+        
+        // function myFunction(){
+        //     try{ 
+        //         var x=document.getElementById("demo").value;   //取元素的值
+                
+        //         if(x=="")    throw "值为空";       //根据获取的值，抛出错误
+        //         if(isNaN(x)) throw "不是数字";
+        //         if(x>10)     throw "太大";
+        //         if(x<5)      throw "太小";
+        //     }
+        //     catch(err){
+        //         var y=document.getElementById("mess");     //抓住上面throw抛出的错误，给p标签显示
+        //         y.innerHTML="错误：" + err + "。";
+        //     }
+        // }
+    </script>
+</body>
+</html>

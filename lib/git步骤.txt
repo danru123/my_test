@@ -1,0 +1,50 @@
+从远程仓库克隆
+git clone https://github.com/shi150511/one.git
+
+进入文件夹
+cd 文件夹名称
+
+查看本地分支
+git branch 
+
+查看远程分支
+git branch -r
+
+创建本地分支
+git branch "name"
+
+创建分支并且切换分支
+git checkout -b name
+
+切换分支
+git checkout "name"
+
+添加文件
+git add .
+
+添加注释
+git commit -m "备注"
+
+上传到分支
+git push origin name
+
+拉取
+git pull 
+
+查看版本
+git log 
+
+查看状态
+git status
+
+合并分支
+先切换到主分支
+git checkout master
+开始合并
+git merge dev 	(dev是子分支的名字)
+
+删除分支
+git branch -d dev
+
+删除远程分支
+git push origin --delete name

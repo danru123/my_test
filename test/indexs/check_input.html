@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      // 这是第一种最寻常的方法
+      //定义一个函数
+      function checkField(value, byteLength, attribute) {
+        // value是input框的值,byteLength是需求限制的字符，attribute是input的id名
+        var newvalue = value.replace(/[^\x00-\xff]/g, "**");
+        var length = newvalue.length;
+        console.log(length);
+        //当填写的字节数小于设置的字节数
+        if (length * 1 <= byteLength * 1) {
+          return;
+        }
+        var limitDate = newvalue.substr(0, byteLength);
+        var count = 0;
+        var limitvalue = "";
+        for (var i = 0; i < limitDate.length; i++) {
+          var flat = limitDate.substr(i, 1);
+          if (flat == "*") {
+            count++;
+          }
+        }
+        var size = 0;
+        var istar = newvalue.substr(byteLength * 1 - 1, 1); //校验点是否为“×”
+        //if 基点是×; 判断在基点内有×为偶数还是奇数
+        if (count % 2 == 0) {
+          //当为偶数时
+          size = count / 2 + (byteLength * 1 - count);
+          limitvalue = value.substr(0, size);
+        } else {
+          //当为奇数时
+          size = (count - 1) / 2 + (byteLength * 1 - count);
+          limitvalue = value.substr(0, size);
+        }
+        alert(
+          "最大输入" +
+            byteLength +
+            "个字节（相当于" +
+            byteLength / 2 +
+            "个汉字）！"
+        );
+        document.getElementById(attribute).value = limitvalue;
+        return;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrap">
+      <form>
+        <table class="list-style">
+          <tr>
+            <td style="width:15%;text-align:right;">职业：</td>
+            <td>
+              <input id="profession" type="text" onchange="checkField(this.value,20,'profession')" class="textBox length-middle" name="profession"/>
+              <input id="interest" type="text" onchange="checkField(this.value,100,'interest')" class="textBox length-middle" name="interest"/>
+              <input id="address" onchange="checkField(this.value,40,'address')" type="text" class="textBox length-middle" name="address" />
+            </td>
+          </tr>
+        </table>
+
+        <div style="margin:20px  0  0  300px">
+          <button
+            type="reset"
+            style="width:60px;height:30px;margin-right:40px"
+            "refresh()"
+          >
+            重置
+          </button>
+          <button
+            type="submit"
+            style="width:60px;height:30px"
+            "return checkNull()"
+          >
+            提交
+          </button>
+        </div>
+      </form>
+    </div>
+    <script src='../../../my/lib/new_1.js'></script>
+    <script>
+        GET('http://dev-sangzhixing.bankft.com/app/message/list',function(res){
+            console.log(res);
+        })
+    </script>
+
+  </body>
+</html>
+

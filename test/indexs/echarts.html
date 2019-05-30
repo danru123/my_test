@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../indexs/lib/echarts.min.js"></script>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        @media screen and (device-width:375px) and (device-height:667px) {
+           .box{
+               background-color: blanchedalmond;
+           }
+        }
+
+        .text{
+            word-spacing: 0em;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <q>我是标题</q>
+    <blockquote>大幅度随风倒随风倒</blockquote>
+    <p>
+        <sup>上标</sup>
+        <span>电影</span>
+        <sub>下标</sub>
+    </p>
+   <ins>下划线</ins>
+   <p class="text">
+    word-spacing 
+	作用：设置词与词之间的距离，实际上是设置词与词之间的空格大小
+
+text-align
+	作用：设置文本的对齐方式
+	可选项：
+		left默认值,文本靠左对齐 
+		right,文本靠右对齐 
+		center ,文本居中对齐 
+		justify，两端对齐 ,通过调整文本之间的空格的大小,来达到一个两端对齐的目的的
+
+text-indent
+	作用：设置首行缩进
+	当给它指定一个正值时，会自动向右侧缩进指定的像素 
+	如果为它指定一个负值,则会向左移动指定的像素通过这种方式可以将一些不想显示的文字隐藏起来
+例：
+	text-indent:2em     缩进两个字符
+   </p>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+        var data=[820, 932, 901, 934, 1290, 1330, 1320]
+        // 指定图表的配置项和数据
+        option = {
+            xAxis: {
+                type: 'category',
+                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [{
+                data: data,
+                type: 'line',
+            }],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'none'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+        }
+
+        
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        
+    </script>
+</body>
+</html>
