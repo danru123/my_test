@@ -18,25 +18,31 @@
     </style>
 </head>
 <body>
-    <div id="box">
-
-    </div>
+    <div id="box"></div>
     <br>
     <button class="btn">开始</button>
     <button class="end">结束</button>
-    <script src="../indexs/lib/jquery-1.12.3.min.js"></script>
+    <script src="js/jquery-1.12.3.min.js"></script>
     <script>
-        var arr=['张三','李四','王五','张麻子','张上课'];
+        var arr=['油泼面', '酸辣土豆丝 ',"回锅肉 ","地锅鸡", "辣子鸡", "小油菜", "木桶饭", "酸辣粉丝", "青椒肉丝", "红烧肉", "清蒸鱼","干煸西蓝花", "牛柳", "糖醋排骨", "黄焖鸡","炒菜","凉皮","自助","莴苣", "蚂蚁上树", "香菇炖鸡", "口水鸡", "烤鸭", "豆腐", "山药炒肉片"];
         for(var i=0;i<arr.length;i++){
             $('#box').append('<span>'+arr[i]+'</span>');
         }
 
         var timer=null;
         $('.btn').click(function(){
+            clearInterval(timer);
             timer=setInterval(function(){
-                var num=Math.round(Math.random()*4);
-                $('#box span').eq(num).css('background','red').siblings().css('background','#fff')
+                var num=Math.round(Math.random()*arr.length);
+                $('#box span').eq(num).css({
+                    'background':'rgb(225, 105, 195)',
+                    'color':'#fff'
+                }).siblings().css({
+                    'background':'#fff',
+                    'color':'black'
+                })
             },100)
+            return false;
         })
         $('.end').click(function(){
             clearInterval(timer);
