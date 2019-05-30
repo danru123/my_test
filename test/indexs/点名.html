@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #box span{
+            width: 100px;
+            line-height: 50px;
+            text-align: center;
+            height: 50px;
+            margin:10px;
+            border:1px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+
+    </div>
+    <br>
+    <button class="btn">开始</button>
+    <button class="end">结束</button>
+    <script src="../indexs/lib/jquery-1.12.3.min.js"></script>
+    <script>
+        var arr=['张三','李四','王五','张麻子','张上课'];
+        for(var i=0;i<arr.length;i++){
+            $('#box').append('<span>'+arr[i]+'</span>');
+        }
+
+        var timer=null;
+        $('.btn').click(function(){
+            timer=setInterval(function(){
+                var num=Math.round(Math.random()*4);
+                $('#box span').eq(num).css('background','red').siblings().css('background','#fff')
+            },100)
+        })
+        $('.end').click(function(){
+            clearInterval(timer);
+        })
+    </script>
+</body>
+</html>
