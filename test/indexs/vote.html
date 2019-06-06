@@ -61,6 +61,56 @@
         width: 200px;
         height: 300px;
     }
+
+
+    .btn {
+        background-color:#75daf3;
+        border:none;
+        color:#ffffff;
+        outline:none;
+        padding:12px 40px 10px;
+        position:relative;
+        left:50px; 
+        top:50px;
+        margin: 10px;
+        }
+        .button {
+            background-color:#75daf3;
+            border:none;
+            color:#ffffff;
+            outline:none;
+            padding:12px 40px 10px;
+            position:relative;
+            left:50px; 
+            top:50px;
+            margin: 10px;
+        } 
+        .button:before,.button:after {
+            border:0 solid transparent;
+            transition:all 0.25s;
+            content:'';
+            height:24px;
+            position:absolute;
+            width:0px;
+        }
+        .button:before {
+            border-top:2px solid #c47135;
+            left:0px;
+            top:-5px;
+        }
+        .button:after {
+            border-bottom:2px solid #c47135;
+            bottom:-5px;
+            right:0px;
+        }
+        .button:hover {
+            background-color:#58b6d3;
+        }
+        .button:hover:before,.button:hover:after {
+            height:100%;
+            width:100%;
+        }
+
 </style>
 </head>
 <body>
@@ -74,6 +124,7 @@
             </div>
         </div>
         <button>按钮</button>
+        <button class="button">提交</button>
     </article>
     <!-- <div>
         <img src="./img/合书动画.png" alt="" class="book">

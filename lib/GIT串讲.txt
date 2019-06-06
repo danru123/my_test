@@ -1,0 +1,75 @@
+
+
+git clone 
+git clone http://git.bankft.com/yunkufang/api.518aic.com.git 本地仓库
+
+git status
+
+git branch 
+
+git checkout
+
+git pull
+
+git add 
+
+git commit
+
+git diff
+
+git push
+
+git log
+
+git blame 文件
+
+自己创建分支
+git checkout 原分支
+git checkout -b  新分支
+git push origin 新分支
+
+
+使用新分支
+git pull
+git checkout 新分支名称
+
+
+
+上线合并
+git checkout master
+git pull
+git merge --squash 分支
+git status
+git commit -am ''
+git push origin 分支
+
+
+线性合并
+git checkout mywork
+git rebase master
+git rebase --continue
+
+
+撤销
+git reset 
+git reset 版本 --hard
+git reset --hard origin/分支
+
+git revert
+
+
+拿版本
+git cherry-pick  版本
+
+
+缓存文件
+git stash save
+git stash pop
+git stash list
+git stash clear
+
+
+
+
+
+

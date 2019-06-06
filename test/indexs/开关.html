@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #2A6B64;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            background-color: #2c2c2c;
+            color: #fff;
+            -webkit-transition: all 0.6s;
+            transition: all 0.6s;
+        }
+
+        .switch.off,
+        .switch.on {
+            border-radius: 25px;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .switch.off{
+            background-color: #828282;
+        }
+        .switch.on{
+            background-color: green;
+        }
+
+        .switch.off:before,
+        .switch.on:before {
+            display: block;
+            position: absolute;
+            content: "";
+            height: 40px;
+            width: 40px;
+            text-align: center;
+            line-height: 39px;
+            left: 4px;
+            top: 5px;
+            border: 1px solid #828282;
+            background-color: #f1eff0;
+            box-shadow: 1px 2px 2px 1px #fff inset, 0 0 5px 1px #999;
+            -webkit-transition: 0.6s;
+            transition: all 0.6s;
+            -webkit-transition-delay: 0.01s;
+            transition-delay: 0.01s;
+            border-radius: 50%;
+            z-index: 888;
+        }
+        .switch.off:after{
+            content: '关';
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            z-index: 2;
+        }
+        .switch.on::after{
+            content: '开';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 5;
+        }
+        .switch.on:before {
+            -webkit-transform: translateX(60px);
+            -ms-transform: translateX(60px);
+            transform: translateX(60px);
+        }
+    </style>
+</head>
+<body>
+    <div class="switch off" onclick="toggle()"></div>
+    <script src="./lib/jquery-1.12.3.min.js"></script>
+    <script>
+        var lock=true;
+        function toggle(){
+            $('.switch').toggleClass('off  on');
+            lock=!lock;
+            if(lock){
+                console.log('off');
+            }else{
+                console.log('on');
+                return;
+            }
+        }
+    </script>
+</body>
+</html>
