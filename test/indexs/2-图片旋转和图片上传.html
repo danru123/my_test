@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <div class="img_box">
+            <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3300305952,1328708913&fm=27&gp=0.jpg" alt="" class="rotate_img">
+        </div>
+        <button id="btn">点击旋转</button>
+        </div>
+
+
+        <!-- <div id="upImg">
+            <input type="file" name="file" id="chooseImage" />
+        </div>
+        <div id="imgPreview">
+            <img src="#" id="cropedBigImg" />
+        </div> -->
+    
+    
+        <div class="picture">
+            <span id="img_span">
+                <input id="file" class="filepath" onchange="changepic(this)" type="file"><br> 
+            </span>
+        </div>
+    <script src="./lib/jquery-1.12.3.min.js"></script>
+    <script>
+        //图片旋转
+      var current=0;
+        $('#btn').click(function(){
+          current = (current+90)%360;
+          $('.rotate_img').css({
+            transform:'rotate('+current+'deg)',
+          })
+        })
+
+        // //上传图片
+        // $('#chooseImage').on('change', function() {//当chooseImage的值改变时，执行此函数
+        //   var filePath = $(this).val(), //获取到input的value，里面是文件的路径
+        //   fileFormat = filePath.substring(filePath.lastIndexOf(".")).toLowerCase(),
+        //   src = window.URL.createObjectURL(this.files[0]); //转成可以在本地预览的格式
+        //   console.log(src);
+        //   // 检查是否是图片
+        //   if(!fileFormat.match(/.png|.jpg|.jpeg|.jfif/)) {
+        //     error_prompt_alert('上传错误,文件格式必须为：png/jpg/jpeg');
+        //   return;
+        //   }else{
+        //   $('#cropedBigImg').css('display','block');
+        //   $('#cropedBigImg').attr('src', src); 
+        //   } 
+        //   });
+
+
+          var i=0;
+          function changepic(obj) {
+            //首先插入一个图片标签，src属性为空，宽高设置为100px，暂时设为不可见
+            document.getElementById("img_span").innerHTML+="<img src=\"\" id=\"show"+i+"\" width=\"200\" style=\"opacity: 0;\">"; 
+            //调用getObjectURL函数，返回上传的图片的地址
+            var newsrc=getObjectURL(obj.files[0]);
+            document.getElementById('show'+i).src=newsrc;//将图片的路径设置为返回上传的图片的地址
+            document.getElementById("show"+i).style.opacity=1;//将图片设置为可见
+            i++;
+        }
+        //建立一个可存取到该file的url
+        function getObjectURL(file) {
+            var url = null ;
+            // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+            if (window.createObjectURL!=undefined) { // basic
+                url = window.createObjectURL(file) ;
+            } else if (window.URL!=undefined) { // mozilla(firefox)
+                url = window.URL.createObjectURL(file) ;
+            } else if (window.webkitURL!=undefined) { // webkit or chrome
+                url = window.webkitURL.createObjectURL(file) ;
+            }
+            return url ;
+        }
+    </script>
+</body>
+</html>

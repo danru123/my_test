@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,html{
+            padding: 0;
+            margin: 0;
+        }
+        .bg{
+            width: 100%;
+            height: 560px;
+            background: url(http://www.jq22.com/demo/jQueryduoduo201703162326/images/header_bg.png) no-repeat center 0;
+            background-attachment: fixed;
+            transition: opacity 200ms ease-in-out;
+        }
+        .con{
+            width: 1200px;
+            height: 500px;
+            margin: 0 auto;
+            border:1px solid black;
+        }
+        .banner {
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            width: 558px;
+            margin-left: -279px;
+        }
+        .banner-titlte {
+            width: 100%;
+            text-align: center;
+        }
+        .banner .search {
+            margin-top: 40px;
+        }
+        .banner .search-text {
+            width: 558px;
+            height: 36px;
+            border: 1px solid rgba(255,255,255,.8);
+            background-color: rgba(0,0,0,.15);
+        }
+        .search-text {
+            float: left;
+            padding: 0 12px;
+            border-radius: 2px;
+            box-sizing: border-box;
+            color: #a9a9a9;
+            font-size: 14px;
+        }
+        .banner .search-btn {
+            width: 40px;
+            height: 36px;
+            background: url(http://www.jq22.com/demo/jQueryduoduo201703162326/images/icon-search.svg) no-repeat 9px 7px;
+        }
+        .search-btn {
+            float: left;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .banner .search-hot {
+            width: 100%;
+            line-height: 38px;
+            text-align: center;
+            color: #ddd;
+        }
+        .banner .search-hot a {
+            display: inline;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="bg">
+            <div class="banner">
+                <h2 class="banner-titlte"><img src="http://www.jq22.com/demo/jQueryduoduo201703162326/images/banner-title_img.svg" alt="#"></h2>
+                <div class="search">
+                    <form action="#">
+                        <input type="text" class="search-text" placeholder="搜索你喜欢的">
+                        <a href="#" class="search-btn sprite_icon"></a>
+                    </form>
+                </div>
+                <p class="search-hot">热门搜索：<a href="#">匠人匠心</a></p>
+            </div>
+        </div>
+        <div class="con">
+
+        </div>
+    </div>
+    <script>
+        var opacity=1;
+            var timer=setInterval(function(){
+                opacity-=0.1;
+                // console.log(opacity);
+                if(opacity<=0){
+                    clearInterval(timer);
+                }
+                document.getElementsByTagName('body')[0].style.opacity=opacity;
+            },500)
+            
+        var arr=[{"Id":7,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 1·认识继发性的二尖瓣关闭不全","OrderNum":1,"Atts":"","AttsExt":"","List":[{"Id":10,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 1·认识继发性的二尖瓣关闭不全1","OrderNum":1,"ParentId":7,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v1.mp4","AttsExt":"mp4"},{"Id":11,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 1·认识继发性的二尖瓣关闭不全2","OrderNum":2,"ParentId":7,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v2.mp4","AttsExt":"mp4"}]},{"Id":8,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 2· 临床医生学习二尖瓣超声","OrderNum":2,"Atts":"","AttsExt":"","List":[{"Id":12,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 2· 临床医生学习二尖瓣超声1","OrderNum":1,"ParentId":8,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v3.mp4","AttsExt":"mp4"},{"Id":13,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿 2· 临床医生学习二尖瓣超声2","OrderNum":2,"ParentId":8,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v4.mp4","AttsExt":"mp4"}]},{"Id":9,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿3· 继发性二尖瓣关闭不全的治疗","OrderNum":3,"Atts":"","AttsExt":"","List":[{"Id":14,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿3· 继发性二尖瓣关闭不全的治疗1","OrderNum":1,"ParentId":9,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v5.mp4","AttsExt":"mp4"},{"Id":15,"CourseId":3,"Title":"二尖瓣你不知道的那些事儿3· 继发性二尖瓣关闭不全的治疗2","OrderNum":2,"ParentId":9,"Price":0.00,"Atts":"http://academiclife.bosihw.com/UploadFile/Video/ejb/v6.mp4","AttsExt":"mp4"}]}];
+        var arr2=[];
+        arr.forEach(function(item,index){
+            console.log(item);
+            item.List.forEach(function(item2,index2){
+                arr2.push(item2);
+            })  
+        })
+        console.log(arr2);
+    </script>
+</body>
+</html>
