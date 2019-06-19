@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片压缩上传到阿里云oss</title>
+</head>
+<body>
+    <input style="width:106px;height:38px;" id="file" type="file" accept="image/jpeg,image/jpg,image/png" />
+    
+    <!-- 图片压缩 -->
+    <script type="text/javascript" src="./js/compression.js"></script>
+    
+    <!-- 以下是为了兼容浏览器 可以使用ES6语法 -->
+    <script type="text/javascript" src="./js/browser.min.js"></script>
+    <script type="text/javascript" src="./js/polyfill.min.js"></script>
+    <script type="text/javascript" src="./js/aliyun-oss-sdk.min.js"></script>
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <!-- 代码部分的 script 标签的type类型必须要写这个 type="text/babel" -->
+    <script type="text/babel">
+        $("#file").on("change", function (e) {
+            var file = document.getElementById("file").files[0];
+            var val = document.getElementById("file").value;
+            var suffix = val.substr(val.indexOf(".")); //文件后缀名
+            console.log(suffix);
+            if (suffix == '' || suffix == null) return;
+            if (suffix != '.jpg' && suffix != '.png' && suffix != '.jpeg') {
+                $('#file').val("");
+                // layer.msg('只能选择后缀名为jpg/png/jpeg的图片文件', { icon: 0, time: 2000 });
+                return;
+            }
+ 
+            if (file.size >= 3 * 1024 * 1024) {
+                // layer.msg('上传的图片大小不能超过3M', { icon: 0, time: 2000 });
+                return;
+            }
+ 
+            // layer.load(); //加载框
+            //文件预览
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                //阿里云对象存储上Bucket下的具体的文件地址
+                var storeAs = 'central/lunbo/' + timestamp() + suffix;
+                
+                //当前图片小于1M 原图上传 否则压缩上传
+                if (file.size / 1024 <= 1024) {
+                    async function putBlob() {
+                        //上传Blob数据
+                        let result = await client.put(storeAs, file);
+                        // layer.closeAll('loading');
+                        $('#file').val("");
+                        console.log(result.url); //当前图片在阿里云上的路径
+                    };
+                    putBlob();
+                } else {
+                    //压缩文件
+                    photoCompress(file, { quality: 0.7 }, function (base64Codes) {
+                        var blob = convertBase64UrlToBlob(base64Codes); //转为Blob类型
+                        //上传文件
+                        async function putBlob() {
+                            let result = await client.put(storeAs, blob);
+                            $('#file').val("");
+                            // layer.closeAll('loading');
+                            console.log(result.url); //当前图片在阿里云上的路径
+                        };
+                        putBlob();
+                    });
+                }
+            }
+        });
+ 
+        /**
+         * 生成文件名
+         */
+        function timestamp() {
+            var time = new Date();
+            var y = time.getFullYear();
+            var m = time.getMonth() + 1;
+            var d = time.getDate();
+            var h = time.getHours();
+            var mm = time.getMinutes();
+            var s = time.getSeconds();
+            return "" + y + add(m) + add(d) + add(h) + add(mm) + add(s);
+        }
+	
+        function add(m) {
+            return m < 10 ? '0' + m : m;
+        }
+    </script>
+</body>
+</html>
