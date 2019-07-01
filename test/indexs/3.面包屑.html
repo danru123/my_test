@@ -19,17 +19,25 @@
             });  
         });  
    </script>  
-    <script type="text/javascript">  
-        jQuery().ready(function () {  
-            jQuery("#navigation").accordion({  
-                header: '.head',  
-                event: 'click',  
-                fillSpace: true,  
-                animated: 'bounceslide'  
-            });  
-        });  
-    </script>  
-    <link href="css/left.css" rel="stylesheet" type="text/css" />  
+    <style>
+        .text{
+            width: 300px;
+            border:1px solid #000;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            text-overflow:ellipsis;/*文本溢出时显示省略标记*/
+            
+            /* text-overflow:ellipsis;
+            white-space: nowrap; */
+        }
+        .all{
+            width: 300px;
+            height: auto;
+            border:1px solid #000;
+        }
+    </style> 
     </head>  
     <body style="background-color:#e6f4fa;" >  
             <div class="subMenuTitle" id="getTitle"><a href="#">主功能菜单</a></div>  
@@ -94,5 +102,14 @@
                     </li>  
                 </ul>  
             </div>  
+
+            <p class="text">当项目中有图片上传功能时，一般公司都是使用第三方的存储平台，这样便不会产生自己服务器资源占用问题，为避免上传图片太大占用太多空间，提高用户访问的速度，需要将图片进行压缩之后再存储。</p>
+            <button class="btn">查看全部</button>
+            <script src="./lib/jquery-1.12.3.min.js"></script>
+            <script>
+               $('.btn').click(function(){
+                   $('.text').addClass('all').removeClass('text');
+               }) 
+            </script>
     </body>  
 </html>  

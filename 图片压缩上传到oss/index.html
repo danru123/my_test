@@ -7,21 +7,35 @@
 <body>
     <input style="width:106px;height:38px;" id="file" type="file" accept="image/jpeg,image/jpg,image/png" />
     
-    <!-- 图片压缩 -->
-    <script type="text/javascript" src="./js/compression.js"></script>
     
     <!-- 以下是为了兼容浏览器 可以使用ES6语法 -->
     <script type="text/javascript" src="./js/browser.min.js"></script>
     <script type="text/javascript" src="./js/polyfill.min.js"></script>
     <script type="text/javascript" src="./js/aliyun-oss-sdk.min.js"></script>
     <script src="./js/jquery-1.12.3.min.js"></script>
+
+    <!-- 图片压缩 -->
+    <script type="text/javascript" src="./js/compression.js"></script>
     <!-- 代码部分的 script 标签的type类型必须要写这个 type="text/babel" -->
     <script type="text/babel">
         $("#file").on("change", function (e) {
             var file = document.getElementById("file").files[0];
             var val = document.getElementById("file").value;
             var suffix = val.substr(val.indexOf(".")); //文件后缀名
-            console.log(suffix);
+            console.log(file,val,suffix);
+            //file: File {
+            //     name: "3_danruwang.jpg", 
+            //     lastModified: 1559698634842, 
+            //     lastModifiedDate: Wed Jun 05 2019 09:37:14 GMT+0800 (中国标准时间), 
+            //     webkitRelativePath: "", 
+            //     size: 7928,
+            //     name: "3_danruwang.jpg",
+            //     size: 7928,
+            //     type: "image/jpeg",
+            //     webkitRelativePath: "",
+            // }
+            // val: "C:\fakepath\3_danruwang.jpg" 
+            // suffix:".jpg"
             if (suffix == '' || suffix == null) return;
             if (suffix != '.jpg' && suffix != '.png' && suffix != '.jpeg') {
                 $('#file').val("");
@@ -56,10 +70,11 @@
                     //压缩文件
                     photoCompress(file, { quality: 0.7 }, function (base64Codes) {
                         var blob = convertBase64UrlToBlob(base64Codes); //转为Blob类型
+                        console.log(blob);
                         //上传文件
                         async function putBlob() {
                             let result = await client.put(storeAs, blob);
-                            $('#file').val("");
+                            $('#file').val(""); 
                             // layer.closeAll('loading');
                             console.log(result.url); //当前图片在阿里云上的路径
                         };

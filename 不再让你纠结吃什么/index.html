@@ -30,6 +30,7 @@
         }
 
         var timer=null;
+        var flag=true;
         var Color = ['yellow', 'red', 'black', 'skyblue', 'green', 'pink']
         $('.btn').click(function(){
             clearInterval(timer);
@@ -42,7 +43,7 @@
                     'background':'#fff',
                     'color':'black'
                 })
-            },100)
+            },10)
             return false;
         })
         $('.end').click(function(){
