@@ -1,0 +1,32 @@
+云库房 ：
+	服务器地址：
+	线上地址：api: https://api.518aic.com				（在本地调试/api，服务器不用配置）
+	// var urls='http://api.test.518aic.com/' //测试地址
+	预发布：https://test-api.518aic.com
+	
+	h5:
+	线上：h5: https://m.518aic.com
+	测试：http://dev-m.bankft.com
+	预发布：http://test-m.518aic.com
+
+	pc:
+	预发布：http://test.518aic.com
+云钱包：
+	服务器地址：
+	// var urls = 'https://tapi2.bankft.com/' // 测试服务器06.19    
+	var urls='https://preapi.bankft.com/' //预发布地址
+	// var urls = 'https://apis.bankft.com/'  //线上地址
+	
+	h5:
+	线上：h5:https://m.bankft.com
+	测试：https://h5.bankft.com
+	
+
+云库房测试开发机：
+	ip:172.20.0.13 
+用户名:centos  
+密码:aic999www
+
+通知：svn迁移成功
+地址：svn://172.20.0.8/yunqianbao/api
+用户名密码依旧可以用

@@ -15,9 +15,12 @@
     <div>
         <div class="img_box">
             <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3300305952,1328708913&fm=27&gp=0.jpg" alt="" class="rotate_img">
-            <button id="btn">点击旋转</button>
+            <button id="btn">点击旋转1</button>
         </div>
-
+        <div class="img_box">
+            <img src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3637123525,1197717325&fm=27&gp=0.jpg" alt="" class="rotate_img">
+            <button id="btn">点击旋转2</button>
+        </div>
         <div id="upImg">
             <input type="file" name="file" id="chooseImage" />
         </div>
@@ -31,6 +34,14 @@
                 <input id="file" class="filepath" onchange="changepic(this)" type="file"><br> 
             </span>
         </div>
+
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
     <script src="./lib/jquery-1.12.3.min.js"></script>
     <script>
         //图片旋转
@@ -41,6 +52,7 @@
             transform:'rotate('+current+'deg)',
           })
         })
+
         $('.rotate_img').hover(function(){
             $('.rotate_img').css({
                 transform:'rotate('+current+'deg) scale(1.5) ',
@@ -50,6 +62,36 @@
                 transform:'rotate('+current+'deg) scale(1)',
             })
         })
+        
+    //    $('.img_box').find('button').each(function(index){
+    //        $(this).click(function(){
+    //            var current=0;
+    //             current = (current+90)%360;
+    //             $('.rotate_img').eq(index).css({
+    //                 transform:'rotate('+current+'deg)',
+    //             })
+    //             $('.rotate_img').eq(index).hover(function(){
+    //                 $('.rotate_img').eq(index).css({
+    //                     transform:'rotate('+current+'deg) scale(1.5) ',
+    //                 })
+    //             },function(){
+    //                 $('.rotate_img').eq(index).css({
+    //                     transform:'rotate('+current+'deg) scale(1)',
+    //                 })
+    //             })
+    //        })
+    //    })
+
+
+       $('#btn').click(function(){
+           console.log($(this).index());
+       })
+        
+
+        $("li").click(function(){
+        console.log($(this).index());
+        });
+
 
         //上传图片
         $('#chooseImage').on('change', function() {//当chooseImage的值改变时，执行此函数
@@ -90,6 +132,29 @@
             }
             return url ;
         }
+
+
+
+        var hidden, visibilityChange;
+        if (typeof document.hidden !== "undefined") {
+            hidden = "hidden";
+            visibilityChange = "visibilitychange";
+        } else if (typeof document.mozHidden !== "undefined") {
+            hidden = "mozHidden";
+            visibilityChange = "mozvisibilitychange";
+        } else if (typeof document.msHidden !== "undefined") {
+            hidden = "msHidden";
+            visibilityChange = "msvisibilitychange";
+        } else if (typeof document.webkitHidden !== "undefined") {
+            hidden = "webkitHidden";
+            visibilityChange = "webkitvisibilitychange";
+        }
+        
+        console.log(document[hidden],document.hidden);
+        // 添加监听器
+        document.addEventListener(visibilityChange, function() {
+            console.log("当前页面是否被隐藏：" + document[hidden]);
+        }, false);
     </script>
 </body>
 </html>

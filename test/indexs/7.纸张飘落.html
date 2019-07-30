@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            margin: 0 auto;
+            width: 100px;
+            height: 150px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            background-color: skyblue;
+            box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.5);
+            pointer-events: none;
+            -webkit-animation: tear-animation 1.5s linear forwards;
+            animation: tear-animation 1.5s linear forwards;
+        }
+        @-webkit-keyframes tear-animation {
+            0% {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                top: 0;
+                opacity: 1;
+            }
+            20% {
+                -webkit-transform: rotate(9deg);
+                        transform: rotate(9deg);
+                top: 0;
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                top: 200px;
+                left: 0;
+                opacity: 0;
+            }
+        }
+        @keyframes tear-animation {
+            0% {
+                -webkit-transform: rotate(0deg);
+                        transform: rotate(0deg);
+                top: 0;
+                opacity: 1;
+            }
+            20% {
+                -webkit-transform: rotate(9deg);
+                        transform: rotate(9deg);
+                top: 0;
+                opacity: 1;
+            }
+            70% {
+                opacity: 1;
+            }
+            100% {
+                top: 200px;
+                opacity: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
