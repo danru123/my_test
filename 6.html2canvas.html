@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+	<section id="content">
+		<img class="bg" src="http://cdn.duitang.com/uploads/item/201412/24/20141224010926_crKEt.thumb.700_0.jpeg" alt="" />
+		<p>昵称：<span>caicaicai</span></p>
+		<p>个签：<span>Hello world</span></p>
+	　　	<img class="icon" src="http://cdnzzz.vcgeek.cn/forward@2x.png" alt="" />
+	</section>
+	<div class="btnSave">
+	　	<button οnclick="saveImg()">生成图片(第一步)</button>
+		<button οnclick="download()">下载(第二步)</button>
+	</div>
+ 
+ 
+    <div id='photoPic' class="photoPic">
+　　		<span>长按保存图片</span>
+		<div class="imgbox">
+			<i>X</i>
+			<img src="" alt="" />
+		</div>
+    </div>
+    <div id="images"></div>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        /*
+         * div转成canvas图形,canvas转base64
+         */
+        function saveImg(){
+            html2canvas($("#content"), {
+                useCORS: true, //（图片跨域相关）
+                allowTaint: false, //允许跨域（图片跨域相关）
+                dpi: 300,//设置生成图片清晰度
+                //scale: window.devicePixelRatio*2 // 默认值是window.devicePixelRatio(设备像素比)
+                onrendered: function(canvas) {
+                    $("#photoPic img").attr("src",canvas.toDataURL());
+                    $("#photoPic").fadeIn();
+                    $("#photoPic").addClass("animate");
+                    
+                    //用于点击'下载'按钮
+                    canvas.setAttribute('id','thecanvas');
+                    document.getElementById('images').appendChild(canvas);
+                }
+            });
+        }
+        
+        $(".imgbox i").click(function(){
+            $("#photoPic").hide();
+        });
+        
+    </script>
+    <script>
+        /*
+         * 下载图片
+         */
+        function download(){
+            var oCanvas = document.getElementById("thecanvas");
+            // 获取图片资源
+            var img_data1 = Canvas2Image.saveAsPNG(oCanvas, true).getAttribute('src');
+            saveFile(img_data1, 'abc');
+        }
+        
+        // 保存文件函数
+        var saveFile = function(data, filename){
+            var save_link = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+            save_link.href = data;
+            save_link.download = filename;
+           
+            var event = document.createEvent('MouseEvents');
+            event.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+            save_link.dispatchEvent(event);
+        };
+    </script>
+</body>
+</html>

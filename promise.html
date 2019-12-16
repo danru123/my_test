@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>promise</title>
+</head>
+<body>
+	<script>
+		/*let promise = new Promise(function(reslove,reject) {
+			setTimeout(function(){
+				console.log('hello world')
+			},2000)
+		})*/
+
+/*
+		function greet(){
+			let promise = new Promise(function(resolve,reject) {
+				var greet = 'hello world';
+				resolve(greet);
+			});
+			return promise;
+		}
+		greet().then(v => {
+			console.log(v);
+		})*/
+
+
+		/*function greet(){
+			var promise = new Promise(function(resolve,reject){
+				var greet = "hello world";
+				resolve(greet);
+			})
+			return promise;
+		}
+		 greet().then(v => {
+			console.log(v+1);
+			return v;
+		}).then(v => {
+			console.log(v+2);
+			return v;
+		}).then(v => {
+			console.log(v+3);
+		})*/
+
+		// reject 的用法 
+		/*function judgeNumber(num){
+			var promise1 = new Promise(function(resolve,reject) {
+				num = 5;
+				if(num < 5){
+					resolve("num小于5，值为" + num);
+				}else{
+					reject('num不小于5，值为' + num);
+				}
+			});
+			return promise1;
+		}
+
+		judgeNumber().then(function(message){
+			console.log(message);
+		})
+		.catch(function(message) {
+			console.log(message);
+		})*/
+
+
+		// all用法
+		function p1(){
+			var promise1 = new Promise(function(resolve,reject){
+				console.log('P1的第一条输出语句');
+				console.log('P1的第二条输出语句');
+				resolve('p1完成');
+			})
+			return promise1;
+		}
+
+		function p2(){
+			var promise2 = new Promise(function(resolve,reject){
+				console.log('p2的第一条输出语句');
+				setTimeout(()=>{
+					console.log("p2的第二条输出语句");
+					resolve('P2完成');
+				})
+			})
+			return promise2;
+		}
+
+
+
+		function p3(){
+			var promise3 = new Promise(function(resolve,reject){
+				console.log('p3的第一条输出语句');
+				console.log('p3的第二条输出语句');
+				resolve('p3完成');
+			})
+			return promise3;
+		}
+
+
+		Promise.race([p1(),p2(),p3()]).then(function(data) {
+			console.log(data,'data');
+		})
+	
+
+		function test(resolve, reject) {
+			var timeOut = Math.random() * 2;
+			log('set timeout to: ' + timeOut + ' seconds.');
+			setTimeout(function () {
+				if (timeOut < 1) {
+					log('call resolve()...');
+					resolve('200 OK');
+				}
+				else {
+					log('call reject()...');
+					reject('timeout in ' + timeOut + ' seconds.');
+				}
+			}, timeOut * 1000);
+		}
+		new Promise(test).then(function (result) {
+			console.log('成功：' + result);
+		}).catch(function (reason) {
+			console.log('失败：' + reason);
+		});
+
+		//简化
+		new Promise(function (resolve, reject) {
+			console.log('start new Promise...');
+			var timeOut = Math.random() * 2;
+			console.log('set timeout to: ' + timeOut + ' seconds.');
+			setTimeout(function () {
+				if (timeOut < 1) {
+					console.log('call resolve()...');
+					resolve('200 OK');
+				}
+				else {
+					console.log('call reject()...');
+					reject('timeout in ' + timeOut + ' seconds.');
+				}
+			}, timeOut * 1000);
+		}).then(function (r) {
+			console.log('Done: ' + r);
+		}).catch(function (reason) {
+			console.log('Failed: ' + reason);
+		});
+
+
+	</script>
+</body>
+</html>

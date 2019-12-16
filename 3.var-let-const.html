@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //var
+        var a;
+        console.log(a); //undefined
+        a=1;
+        console.log(a);//1
+        
+        let b;
+        console.log(b); //undefined
+        b=2;
+        console.log(b);//2
+        // let b=3;
+        // console.log(b); //报错  let 不能重复声明同一个变量，可重新赋值
+
+        const c=3;
+        // console.log(c);  //报错 Uncaught SyntaxError: Missing initializer in const declaration
+        // c = 4; //报错   Uncaught TypeError: Assignment to constant variable. 一旦声明要立刻赋值
+        console.log(c);
+
+
+
+        /*1.var定义的变量，没有块的概念，可以跨块访问, 不能跨函数访问。
+        2.let定义的变量，只能在块作用域里访问，不能跨块访问，也不能跨函数访问。
+        3.const用来定义常量，使用时必须初始化(即必须赋值)，只能在块作用域里访问，而且不能修改。*/
+    </script>
+</body>
+</html>

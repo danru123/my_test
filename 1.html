@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fixed底部</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <!-- 为了防止页面数字被识别为电话号码，可根据实际需要添加： -->
+  <meta name="format-detection" content="telephone=no"> 
+  <!-- 让添加到主屏幕的网页再次打开时全屏展示，可添加：   -->
+  <meta content="yes" name="mobile-web-app-capable">
+  <meta content="yes" name="apple-mobile-web-app-capable">
+  <meta name="robots" content="all">
+  <meta name="author" content="Tencent-CP" />
+  <meta name="Copyright" content="Tencent" />
+  <meta name="Description" content="页面的描述内容" />
+  <meta name="Keywords" content="页面关键字" />
+    <style>
+      /* reset */
+      html,body,div,p,ul,li,dl,dt,dd,em,i,span,a,img,input,h1,h2,h3,h4,h5 {margin:0;padding:0}
+      a,img,input {border:none;outline: none;}
+      a {text-decoration:none;}
+      ul,li{list-style: none}
+      
+      body, html {width: 100%; height: 100%; }
+      .wrap {width: 100%; height: 100%; position: relative;}
+      .content {width: 100%; height: 100%; overflow: scroll; position: relative;padding-bottom: 7rem;}
+      .content p {font-size: 2rem; height: 6rem; line-height: 6rem; margin-bottom: 0.5rem;}
+      .content p:nth-child(2n){background: rgba(122, 222,111, 0.5);}
+      .bottom {width:100%; height: 5rem; background: rgba(111,222,90, 0.9); overflow: hidden;text-align: center; position: fixed; bottom: 0; left: 0;}
+      .bottom input {width: 50%; height: 80%; border: 1px solid #eee; margin-top: 0.5rem; border-radius: 1rem}
+      .btn{
+        width: 100px;
+        height: 60px;
+        background-color: pink;
+        border:3px solid rgba(122, 222,111, 0.5);
+        border-radius: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div style="overflow: hidden;">
+        <div class="content">
+          <p>1erwrew</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>15</p>
+          <p>6</p>
+          <p>7</p>
+          <p>8</p>
+          <p>9</p>
+          <p>10</p>
+          <p>11</p>
+          <p>12</p>
+          <p>13</p>
+          <p>10</p>
+          <p>11</p>
+          <p>12</p>
+          <p>13</p>
+          <p>10</p>
+          <p>11</p>
+          <p>20</p>
+          <p>21</p>
+          <p>22</p>
+          <p>23</p>
+          <p>24</p>
+          <p>25</p>
+          <p>21</p>
+          <p>22</p>
+          <p>23</p>
+          <p>24</p>
+          <p>25</p>
+ 
+        </div>
+        <div class="bottom">
+          <input type="text" id="input">
+        </div>
+      </div>
+      <div class="btn"></div>
+    </div>
+    <script>
+    // 适配
+    var designsWidth = 750;   // 设计稿宽度
+    var w = document.documentElement.clientWidth || document.body.clientWidth;
+    document.documentElement.style.fontSize = (w / designsWidth * 20) + "px";
+    window.onresize = function()
+    {
+        var w = document.documentElement.clientWidth || document.body.clientWidth;
+        document.documentElement.style.fontSize = (w / designsWidth * 20) + "px";
+    }
+    
+    </script>
+    <script src="https://static.bankft.com/h5/js/jquery-1.12.3.min.js" charset="utf-8"></script>
+    <script>
+    //   $('#input').on('focus', function () {
+    //     $('body, html')[0].scrollTo(0, $('body').height())
+    //     // $('body').scrollTo($('body').height())
+    //   })
+   
+ 
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            name:'lisi',
+            age:18
+        }
+        console.log(JSON.stringify(obj)); //{"name":"lisi","age":18}  json转字符串
+        // console.log(str.toJSONString());
+
+        // console.log(obj.parseJSON());
+        console.log(JSON.parse(JSON.stringify(obj)));  //josn字符串转json
+    </script>
+</body>
+</html>
