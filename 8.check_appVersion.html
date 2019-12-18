@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.
+          //假定字符串的每节数都在5位以下
+        function toNum(v){
+            var v=v.toString();
+            var c=v.split('.');
+            console.log(c);
+            // var num_place=["","0","00","000","0000"],r=num_place.reverse();
+            // console.log(r);
+            // for (var i=0;i<c.length;i++){ 
+            //     var len=c[i].length;       
+            //     c[i]=r[len]+c[i];  
+            //     //c[0]=r[1]+c[0];
+            //     //c[1]=r[1]+c[1];
+            // } 
+            // console.log(c);
+            var version= Number(c.join('')); 
+            console.log(version);
+            return version; 
+        } 
+        function cpr_version(lastV,currV){ 
+            var lastV=toNum(lastV),currV=toNum(currV);
+            var result;     
+            console.log(lastV,currV);
+            if(currV>=lastV) {
+                result=true;
+                console.log("新版",result); 
+            }else{
+                result=false;
+                console.log('旧版',result);
+            }
+            return result;
+        }    
+        //更新时版本1.1.5  在更1.1.7  在更1.1.8
+        cpr_version('1.1.22.78','1.1.22.99');
+        // console.log(cpr_version('1.1.5','1.1.6')==true);    
+        //2
+    </script>
+</body>
+</html>
